@@ -5,7 +5,7 @@ import 'package:weather_app/cubits/get_weather_cubit/get_weather_cubit.dart';
 import 'package:weather_app/firebase_options.dart';
 import 'package:weather_app/views/home_view.dart';
 // import 'package:weather_app/views/result_view.dart';
-import 'package:weather_app/views/search_weather_view.dart';
+// import 'package:weather_app/views/search_weather_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
