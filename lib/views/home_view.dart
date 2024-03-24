@@ -10,12 +10,13 @@ import 'package:weather_app/views/weather_info_body.dart';
 import 'package:weather_app/views/search_weather_view.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({Key? key}) : super(key: key);
+  HomeView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 2,
         backgroundColor:
             BlocProvider.of<GetWeatherCubit>(context).weatherModel == null
@@ -35,9 +36,9 @@ class HomeView extends StatelessWidget {
           IconButton(
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const SearchView()));
+                  MaterialPageRoute(builder: (context) => SearchView()));
             },
-            icon: const Icon(
+            icon: Icon(
               Icons.search,
               color: AppColor.white,
             ),
@@ -47,13 +48,13 @@ class HomeView extends StatelessWidget {
       body: BlocBuilder<GetWeatherCubit, WeatherState>(
         builder: (context, state) {
           if (state is WeatherInitialState) {
-            return const NoWeatherBody();
+            return NoWeatherBody();
           } else if (state is WeatherLoadedState) {
             return WeatherInfoBody(
               weather: state.weatherModel,
             );
           } else {
-            return const Text('Oops! Something went wrong. Please try again.');
+            return const Text(AppString.oopsMessage);
           }
         },
       ),

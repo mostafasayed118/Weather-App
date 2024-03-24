@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/core/utils/app_assets.dart';
 import 'package:weather_app/core/utils/app_colors.dart';
+import 'package:weather_app/core/utils/app_strings.dart';
 import 'package:weather_app/core/widget/on_boarding_page.dart';
 import 'package:weather_app/views/on_boarding/create_acc.dart';
 
@@ -26,22 +28,19 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
   List pageArea = [
     {
-      "title": "Your Ultimate Forecast Companion",
-      "subtitle":
-          "Dive into the world of WeatherWave, where every forecast is at your fingertips. With intuitive design and up-to-the-minute updates, never be caught off guard by the elements again.",
-      "image": "assets/images/1.png"
+      "title": AppString.titleOne,
+      "subtitle": AppString.subTitleOne,
+      "image": AppAssets.onboarding1
     },
     {
-      "title": "Navigate Your Day with Confidence",
-      "subtitle":
-          "The app that empowers you to conquer any weather condition. Whether you're planning a weekend getaway or just heading out for a stroll, SkySavvy delivers precise forecasts tailored to your location.",
-      "image": "assets/images/2.png"
+      "title": AppString.titleTwo,
+      "subtitle": AppString.subTitleTwo,
+      "image": AppAssets.onboarding2
     },
     {
-      "title": "Your Personal Weather Wizard",
-      "subtitle":
-          "Unleash the magic of ForecastMaster and unlock the secrets of weather prediction like never before. With cutting-edge technology and comprehensive data, this app is your key to meteorological mastery.",
-      "image": "assets/images/3.png"
+      "title": AppString.titleThree,
+      "subtitle": AppString.subTitleThree,
+      "image": AppAssets.onboarding3
     },
   ];
   PageController controller = PageController();
@@ -66,8 +65,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextButton(
-                child: Text(
-                  'Skip',
+                child: const Text(
+                  AppString.skip,
                   style: TextStyle(
                     color: AppColor.black,
                     fontWeight: FontWeight.w500,
@@ -107,7 +106,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       borderRadius: BorderRadius.circular(35),
                     ),
                     child: IconButton(
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.navigate_next,
                         color: AppColor.white,
                       ),

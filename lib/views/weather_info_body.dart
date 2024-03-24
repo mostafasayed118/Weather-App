@@ -43,7 +43,7 @@ class WeatherInfoBody extends StatelessWidget {
               ),
             ),
             Text(
-              "Updated on ${weatherModel.date.hour}:${weatherModel.date.minute}",
+              "${AppString.updated} ${weatherModel.date.hour}:${weatherModel.date.minute}",
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontWeight: FontWeight.w500,
@@ -59,7 +59,7 @@ class WeatherInfoBody extends StatelessWidget {
               children: [
                 // Image.asset('assets/images/rainy.png'),
                 Image.network(
-                  "https:${weatherModel.image}",
+                  "${AppString.https}${weatherModel.image}",
                   width: 100,
                   height: 100,
                 ),
@@ -73,14 +73,14 @@ class WeatherInfoBody extends StatelessWidget {
                 Column(
                   children: [
                     Text(
-                      "MaxTemp ${weatherModel.maxTemp.round()}",
+                      "${AppString.maxTemp}${weatherModel.maxTemp.round()}",
                       style: const TextStyle(
                         fontWeight: FontWeight.normal,
                         fontSize: 15,
                       ),
                     ),
                     Text(
-                      "MinTemp ${weatherModel.minTemp.round()}",
+                      "${AppString.minTemp}${weatherModel.minTemp.round()}",
                       style: const TextStyle(
                         fontWeight: FontWeight.normal,
                         fontSize: 15,
@@ -95,7 +95,7 @@ class WeatherInfoBody extends StatelessWidget {
             ),
             Text(
               weatherModel.descriptionWeather,
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 24,
               ),

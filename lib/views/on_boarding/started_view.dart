@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 import 'package:slide_to_act/slide_to_act.dart';
+import 'package:weather_app/core/utils/app_assets.dart';
 import 'package:weather_app/core/utils/app_colors.dart';
+import 'package:weather_app/core/utils/app_strings.dart';
 import 'package:weather_app/core/utils/colo_extension.dart';
 import 'package:weather_app/core/widget/normal_button.dart';
 import 'package:weather_app/views/on_boarding/on_boarding_view.dart';
@@ -29,29 +32,32 @@ class _StartedViewState extends State<StartedView> {
                   flex: 2,
                 ),
                 Text(
-                  'Welcome In',
+                  AppString.welcomeIn,
                   style: TextStyle(
                     color: AppColor.primaryColor1,
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
-                    
                   ),
                 ),
                 Text(
-                  'NutriFix',
+                  AppString.weatherZ,
                   style: TextStyle(
                     color: AppColor.primaryColor1,
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
-                    
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: media.width * 0.3,
                 ),
-                Image.asset('assets/images/o1.jpg'),
-                const Spacer(
-                  flex: 1,
+                Lottie.asset(
+                  AppAssets.animation_get_started,
+                  width: 225,
+                  height: 290,
+                  fit: BoxFit.fill,
+                ),
+                SizedBox(
+                  height: media.width * 0.2,
                 ),
                 SafeArea(
                   child: Padding(
@@ -60,26 +66,6 @@ class _StartedViewState extends State<StartedView> {
                       child: Stack(
                         children: [
                           SlideAction(
-                            child: NormalButton(
-                              textColor: TColor.white,
-                              text: 'Get Started',
-                              onPressed: () {
-                                //Go to next screen
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        const OnBoardingView(),
-                                  ),
-                                );
-                              },
-                              backgroundColor: TColor.primaryColor1,
-                              widthSize: 344,
-                              heightSize: 70,
-                              borderColor: TColor.primaryColor1,
-                              fontSize: 25,
-                            ),
-
                             onSubmit: () {
                               //Go to next screen
                               Navigator.push(
@@ -98,16 +84,28 @@ class _StartedViewState extends State<StartedView> {
                             // innerColor: TColor.primaryColor1,
 
                             sliderButtonIcon: Image.asset(
-                              'assets/images/arrow.png',
+                              AppAssets.arrow,
                               height: 25,
                             ),
-                            // text: 'Get Started',
-                            // textColor: Colors.red,
-                            // textStyle: const TextStyle(
-                            //   fontSize: 24,
-                            //   fontFamily: 'Khand',
-                            //   fontWeight: FontWeight.bold,
-                            // ),
+                            child: NormalButton(
+                              textColor: TColor.white,
+                              text: AppString.getStarted,
+                              onPressed: () {
+                                //Go to next screen
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const OnBoardingView(),
+                                  ),
+                                );
+                              },
+                              backgroundColor: TColor.primaryColor1,
+                              widthSize: 344,
+                              heightSize: 70,
+                              borderColor: TColor.primaryColor1,
+                              fontSize: 25,
+                            ),
                           ),
                         ],
                       )),

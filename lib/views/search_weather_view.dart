@@ -10,13 +10,13 @@ import 'package:weather_app/model/weather_model.dart';
 import 'package:weather_app/services/weather_services.dart';
 
 class SearchView extends StatelessWidget {
-  const SearchView({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title:  Text(
           AppString.appBarTitleSearch,
           style: TextStyle(
             fontWeight: FontWeight.w600,

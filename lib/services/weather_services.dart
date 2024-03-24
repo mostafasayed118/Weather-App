@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
+import 'package:weather_app/core/utils/app_strings.dart';
 import 'package:weather_app/model/weather_model.dart';
 
 class WeatherServices {
@@ -18,12 +19,12 @@ class WeatherServices {
       WeatherModel weatherModel = WeatherModel.fromJson(response.data);
       return weatherModel;
     } on DioException catch (e) {
-      final String errorMessage = e.response?.data['error']['message'] ??
-          "oops something went wrong,try again later";
+      final String errorMessage =
+          e.response?.data['error']['message'] ?? AppString.oopsMessage;
       throw Exception(errorMessage);
     } catch (e) {
       log(e.toString());
-      throw Exception('oops something went wrong,try again later');
+      throw Exception(AppString.oopsMessage);
     }
   }
 }

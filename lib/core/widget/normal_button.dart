@@ -46,6 +46,7 @@ class NormalButton extends StatelessWidget {
         ],
       ),
       child: MaterialButton(
+        
         onPressed: onPressed,
         minWidth: double.maxFinite,
         elevation: 1,

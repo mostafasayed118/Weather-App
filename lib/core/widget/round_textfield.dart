@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/core/utils/app_colors.dart';
+import 'package:weather_app/core/utils/app_strings.dart';
 
 class RoundTextfield extends StatelessWidget {
   final TextEditingController? controller;
@@ -7,8 +8,9 @@ class RoundTextfield extends StatelessWidget {
   final String hitText;
   final String iconPath;
   final EdgeInsets? margin;
-  final Widget? rigticon;
+  final Widget? rightIcon;
   final bool obscureText;
+  final Function(String)? onChanged;
 
   const RoundTextfield(
       {Key? key,
@@ -18,7 +20,8 @@ class RoundTextfield extends StatelessWidget {
       this.margin,
       this.keyboardType,
       this.obscureText = false,
-      this.rigticon})
+      this.rightIcon,
+      this.onChanged})
       : super(key: key);
 
   @override
@@ -29,7 +32,14 @@ class RoundTextfield extends StatelessWidget {
         color: AppColor.gray.withOpacity(0.05),
         borderRadius: BorderRadius.circular(15),
       ),
-      child: TextField(
+      child: TextFormField(
+        validator: (data) {
+          if (data == null || data.isEmpty) {
+            return AppString.vallationMessage;
+          }
+        },
+        cursorColor: AppColor.primaryColor1,
+        onChanged: onChanged,
         obscureText: obscureText,
         keyboardType: keyboardType,
         controller: controller,
@@ -44,7 +54,7 @@ class RoundTextfield extends StatelessWidget {
             fontWeight: FontWeight.w700,
             color: AppColor.primaryColor1,
           ),
-          suffixIcon: rigticon,
+          suffixIcon: rightIcon,
           prefixIcon: Container(
             alignment: Alignment.center,
             width: 25,

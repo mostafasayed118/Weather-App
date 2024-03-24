@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -45,16 +48,6 @@ class DefaultFirebaseOptions {
         );
     }
   }
-
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBK3PvdwCxWUiwyjpakK9t5_VCQSgXAGEk',
-    appId: '1:265867354394:web:3e9d04392d9c4c706a0ca3',
-    messagingSenderId: '265867354394',
-    projectId: 'weather-app-8e742',
-    authDomain: 'weather-app-8e742.firebaseapp.com',
-    storageBucket: 'weather-app-8e742.appspot.com',
-    measurementId: 'G-3JNCPE857F',
-  );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCN3N5mB5d91YxJhoyx0IeXbEIGgUWYIBE',
